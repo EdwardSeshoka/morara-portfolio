@@ -1,0 +1,25 @@
+{
+  "name": "morara-portfolio",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "clean": "node ./scripts/clean.mjs",
+    "prepare:site": "node ./scripts/prepare-site.mjs",
+    "build": "npm run clean && tsc -p tsconfig.json && npm run prepare:site",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "version:validate": "node ./scripts/portfolio-version.mjs validate",
+    "cdk:deploy:dev": "npm run build && DEPLOY_ENVIRONMENT=dev npx cdk deploy \"morara-dev/*\" --require-approval never --app \"node dist/infra/cdk/bin/app.js\"",
+    "cdk:deploy:beta": "npm run build && DEPLOY_ENVIRONMENT=beta npx cdk deploy \"morara-beta/*\" --require-approval never --app \"node dist/infra/cdk/bin/app.js\"",
+    "cdk:deploy:production": "npm run build && DEPLOY_ENVIRONMENT=production npx cdk deploy \"morara-production/*\" --require-approval never --app \"node dist/infra/cdk/bin/app.js\""
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "aws-cdk": "^2.1106.0",
+    "aws-cdk-lib": "^2.179.0",
+    "constructs": "^10.3.0",
+    "typescript": "^5.6.3"
+  }
+}
