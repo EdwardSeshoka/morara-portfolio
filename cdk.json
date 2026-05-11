@@ -1,0 +1,12 @@
+{
+  "app": "node dist/infra/cdk/bin/app.js",
+  "context": {
+    "devAccountId": "072468084892",
+    "devRegion": "af-south-1",
+    "betaRegion": "af-south-1",
+    "productionRegion": "af-south-1",
+    "defaultRegion": "af-south-1",
+    "devPortfolioDomainName": "portfolio.dev.morara.wine",
+    "devPortfolioHostedZoneName": "dev.morara.wine"
+  }
+}
